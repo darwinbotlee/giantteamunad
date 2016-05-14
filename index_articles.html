@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+
+<html lang="es" class="no-js">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="edwin salamanca" name="author"/>
+        <meta content="Giant Team" name="description" />
+        <meta content="Giant, Mountain, Bike, team" name="keywords" />
+        <title>Giant Team</title>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light|Indie+Flower' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/slick/slick.css">
+        <link rel="stylesheet" type="text/css" href="css/slick/slick-theme.css">
+        <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">        
+    </head>
+    <body>	
+        <div id="main">
+            <header>
+                <img src="img/giant_logo_white_bigger_3d.png" alt="Giant Bicycles"><h1>Mountain Bike Team</h1>                                         
+            </header>
+            <h4 style="float: left; margin-left: 140px; position: absolute"><a href="index.html">Go back</a></h4>
+            <section class="centerTetx">
+                <h1>Latest Articles</h1>
+                <div style="width: 70%; height: 400px; margin: auto; overflow-y: scroll;">
+                    <article class="news">
+                        <h2>KEY RIDERS RETURN TO LEAD GIANT FACTORY OFF-ROAD TEAM IN 2016</h2>
+                        <aside>
+                            Gutierrez, Barelli and others look to build on highly successful 2015 season at top DH and Enduro events around the world.<br/><br/>
+
+                            Following a thrilling 2015 season that saw the team collect podium finishes and big wins at some of the most prestigious Downhill and Enduro events around the world, the Giant Factory Off-Road Team is back for 2016 with a renewed focus on the UCI World Cup and Enduro World Series races.<br/><br/>
+
+                            Five-time Colombian downhill national champion Marcelo Gutierrez signed a three-year extension with the team and is already off to a winning start in 2016 following a victory at the Manizales Urban Downhill race in January. Gutierrez is coming off a successful 2015 season that saw him land his first-ever World Cup podium finish at Fort William and break into the top-10 overall with a final World Cup ranking of eighth. The 25-year-old also repeated his title at the grueling Garbanzo DH, part of the Crankworx Whistler event in British Columbia.<br/><br/>
+                        </aside>    
+                        <img src="http://mbaction.com/wp-content/uploads/2016/02/Marcelo_Gutierrez-750x1000.jpg" />
+                        <p style="font-weight: bold; width: 750px">“Our World Cup DH squad had a great season last year, riding the new Glory Advanced bikes and collecting some nice podium finishes,” Gutierrez said. “I’m looking forward to continuing the momentum and seeing what we can do in 2016.”</p><br/>
+                        <aside>
+                            Joining Gutierrez on the downhill team is Spanish teenager Alex Marin, who makes the jump up to the elites this year following a successful run in the junior men’s category. Marin, who finished 4th overall in the 2015 junior men’s World Cup standings, with several podium appearances, traveled to Colombia in January to train and race with Gutierrez as they prepare for the upcoming World Cup season.<br/><br/>
+                        </aside>    
+                        <img src="http://mbaction.com/wp-content/uploads/2016/02/Alex_Marin-750x1000.jpg" /><br/><br/>
+                        <aside>
+                            Also returning to the DH squad this year is 21-year-old French rider Guillaume Cauvin. The former junior French Cup winner had a solid first year with the team in 2015, highlighted by a podium finish in the pro men’s DH at the Crankworx Les 2 Alpes event in France.<br/><br/> 
+                        </aside>    
+                        <img src="http://mbaction.com/wp-content/uploads/2016/02/Guillaume_Cauvin-750x1000.jpg" /><br/><br/>
+                        <h2><a href="http://mbaction.com/uncategorized/giant-factory-off-road-team-for-2016">Read full article here...</a></h2><br/><br/>
+                    </article>                    
+                </div>
+            </section> 
+            <Footer>© All Rights Reserved <span style="float: right; padding-right: 15px">Diseñado por: Edwin Alberto Salamanca Becerra</span></Footer>
+        </div>        
+        <div id="dialog-message" title="Rider information" style="display: none">            
+            <div style="width: 100%; height: 100%">
+                <iframe id="contentframe" style="width: 100%; height: 99%" src="" frameBorder="0"></iframe>
+            </div>
+        </div>
+    </body>
+    <script src="js/modernizr.js"></script>   
+    <script src="js/prefixfree.min.js"></script> 
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js" type="text/javascript"></script>    
+    <script src="css/slick/slick.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(document).on('ready', function () {
+            $('#main').fadeIn();
+            $(".center").slick({
+                dots: true,
+                infinite: true,
+                centerMode: true,
+                slidesToShow: 4,
+                slidesToScroll: 5,
+                autoplay: true,
+                autoplaySpeed: 2000,
+            });
+
+            $(".clickeable").click(function (event) {
+                var ID = $(event.target).closest("div").find('input').val();
+                /*if($(event.target).closest("div").hasClass("slick-center")){
+                 alert();
+                 }*/
+                console.log("src", "info_" + ID + ".html");
+                $("#contentframe").attr("src", "info_" + ID + ".html");
+                /*alert(checkboxID);*/
+                $("#dialog-message").dialog({
+                    modal: true,
+                    draggable: false,
+                    resizable: false,
+                    //position: ['center', 'top'],
+                    show: {effect: 'fade', duration: 250},
+                    hide: 'fade',
+                    width: 800,
+                    height: 650,
+                    dialogClass: 'no-close success-dialog',
+                }).on('dialogclose', function (event) {
+                    $("#contentframe").attr("src", "");
+                });
+                ;
+            });
+        });
+    </script>
+</html>
